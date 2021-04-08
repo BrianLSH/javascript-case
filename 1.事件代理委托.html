@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer" style="width:500px;height:500px;background-color:red">
+        <div id="inner" style="width:350px;height:350px;background-color:black">
+            <div id="center" style="width:150px;height:150px;background-color:green">
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+
+//         outer.onclick = function (ev) {
+//             console.log("OUTER")
+//
+//           }
+//
+//           center.onclick = function (ev) {
+//             console.log("CENTER")
+//
+//           }
+//
+//           inner.onclick = function (ev) {
+//             console.log("INNER")
+//
+//           }
+
+
+        // outer.onclick = function (ev) {
+        //     console.log("OUTER")
+        //     ev.stopPropagation();
+        //   }
+        //
+        //   center.onclick = function (ev) {
+        //     console.log("CENTER")
+        //       ev.stopPropagation();
+        //   }
+        //
+        //   inner.onclick = function (ev) {
+        //     console.log("INNER")
+        //       ev.stopPropagation();
+        //   }
+
+        document.body.onclick = function(e){
+            // console.log(e)
+            let target = e.target;
+            id = target.id;
+            if(id === 'center'){
+                console.log("CENTER")
+                // e.stopPropagation();
+                return;
+            }
+
+            if(id === 'outer'){
+                console.log("OUTER")
+                return;
+            }
+
+            console.log('nothing')
+
+        };
+
+
+       document.getElementById('inner').onclick = function(ev){
+            console.log('INNER')
+            ev.stopPropagation();
+
+        }
+
+
+
+// document.body.onclick = function(e){
+//     // console.log(e)
+//     let target = e.target;
+//     id = target.id;
+//     if(id === 'inner'){
+//         console.log("INNER")
+//         return;
+//     }
+//
+//     if(id === 'outer'){
+//         console.log("OUTER")
+//         return;
+//     }
+//
+//     console.log('nothing')
+//
+// };
+//
+//
+// document.getElementById('center').onclick = function(ev){
+//     console.log('CENTER')
+//     ev.stopPropagation();
+//
+// }
+    </script>
+</body>
+</html>
